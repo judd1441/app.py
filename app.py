@@ -1,3 +1,5 @@
+python
+
 import streamlit as st
 
 # Configure the mobile page layout
@@ -88,5 +90,3 @@ st.write("Everyone broke even! No money changes hands.")
 else:
 for tx in transactions:
 st.markdown(tx)
-
-```
