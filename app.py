@@ -13,7 +13,7 @@ st.subheader("Players & Skins Won")
 st.write("Enter one player per line as `Name: Skins` (e.g., Alice: 3)")
 
 # Default text for easy testing
-default_text = "Alice: 3\nBob: 1\nCharlie: 0\nDavid: 0\nEmma: 2\nFrank: 0"
+default_text = "Will: 0\nSteve: 0\nChris: 0\nJudd: 0\nBryon: 0\nJohn: 0\nSean: 0\nKim: 0"
 raw_text = st.text_area("Player List", value=default_text, height=180, label_visibility="collapsed")
 
 if st.button("Calculate Payouts", type="primary"):
