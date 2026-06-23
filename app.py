@@ -10,7 +10,7 @@ st.write("Determine who owes who money after the round.")
 skin_value = st.number_input("Skin Value (Paid Per Player): $", min_value=0.01, value=1.00, step=1.00)
 
 st.subheader("Players & Skins Won")
-st.write("Enter one player per line as `Name: Skins` (e.g., Alice: 3)")
+st.write("Enter one player per line as `Name: Skins` (e.g., Bob: 3)")
 
 # Default text for easy testing
 default_text = "Will: 0\nSteve: 0\nChris: 0\nJudd: 0\nBryon: 0\nJohn: 0\nSean: 0\nKim: 0"
