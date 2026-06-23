@@ -3,7 +3,7 @@ import streamlit as st
 # Configure the mobile page layout
 st.set_page_config(page_title="Golf Skins", page_icon="⛳", layout="centered")
 
-st.title("⛳ FCW Golf Skins Calculator")
+st.title("⛳ FCW Skins 🂡")
 st.write("Determine who owes who money instantly on the 18th green.")
 
 # 1. Inputs
