@@ -52,11 +52,12 @@ if st.button("Calculate Payouts", type="primary"):
         skin_payout_value = (num_players - 1) * skin_value
         st.info(f"Total value of **1 skin** to the winner: **${skin_payout_value:,.2f}**")
 
-        # Build detailed player summary
+
+# Build detailed player summary
         summary_data = []
         for player, skins in players.items():
-            entry_paid = (num_players - 1) * skin_value  # what each player contributes total
             total_skin_winnings = skins * skin_payout_value
+            total_lost = (total_skins - skins) * skin_value
             net_balance = (skins * num_players - total_skins) * skin_value
 
             summary_data.append({
@@ -64,12 +65,13 @@ if st.button("Calculate Payouts", type="primary"):
                 "Skins Won": skins,
                 "Value per Skin ($)": round(skin_payout_value, 2),
                 "Total Won ($)": round(total_skin_winnings, 2),
-                "Entry Paid ($)": round(entry_paid, 2),
+                "Total Lost ($)": round(total_lost, 2),
                 "Net ($)": round(net_balance, 2)
             })
 
         st.subheader("🏆 Player Results")
         st.dataframe(summary_data, use_container_width=True)
+
 
   # Calculate Balances
         balances = {}
