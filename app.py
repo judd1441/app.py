@@ -70,4 +70,3 @@ if st.button("Calculate Payouts", type="primary"):
 
         st.subheader("🏆 Player Results")
         st.dataframe(summary_data, use_container_width=True)
-``
