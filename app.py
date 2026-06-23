@@ -1,4 +1,3 @@
-```python
 import streamlit as st
 
 # Configure the mobile page layout
