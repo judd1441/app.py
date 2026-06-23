@@ -3,7 +3,7 @@ import streamlit as st
 # Configure the mobile page layout
 st.set_page_config(page_title="Golf Skins", page_icon="⛳", layout="centered")
 
-st.title("⛳ ForeSkins 🂡")
+st.title("⛳ ForeSkins")
 st.write("Who owes who money after the round.")
 
 # 1. Inputs
