@@ -4,7 +4,7 @@ import streamlit as st
 st.set_page_config(page_title="Golf Skins", page_icon="⛳", layout="centered")
 
 st.title("⛳ FCW Skins 🂡")
-st.write("Determine who owes who money instantly on the 18th green.")
+st.write("Determine who owes who money after the round.")
 
 # 1. Inputs
 skin_value = st.number_input("Skin Value (Paid Per Player): $", min_value=0.01, value=1.00, step=1.00)
