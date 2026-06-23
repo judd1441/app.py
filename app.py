@@ -44,47 +44,30 @@ if st.button("Calculate Payouts", type="primary"):
         # Display Summaries
         st.markdown("---")
         st.subheader("📊 Round Summary")
+
         col1, col2 = st.columns(2)
         col1.metric("Total Players", num_players)
         col2.metric("Total Skins Won", total_skins)
-        
+
         skin_payout_value = (num_players - 1) * skin_value
         st.info(f"Total value of **1 skin** to the winner: **${skin_payout_value:,.2f}**")
 
-        # Calculate Balances
-        balances = {}
+        # Build detailed player summary
+        summary_data = []
         for player, skins in players.items():
+            entry_paid = (num_players - 1) * skin_value  # what each player contributes total
+            total_skin_winnings = skins * skin_payout_value
             net_balance = (skins * num_players - total_skins) * skin_value
-            balances[player] = round(net_balance, 2)
 
-        # Optimize Payments
-        st.subheader("💸 Who Pays Who")
-        debtors = [[name, bal] for name, bal in balances.items() if bal < 0]
-        creditors = [[name, bal] for name, bal in balances.items() if bal > 0]
+            summary_data.append({
+                "Player": player,
+                "Skins Won": skins,
+                "Value per Skin ($)": round(skin_payout_value, 2),
+                "Total Won ($)": round(total_skin_winnings, 2),
+                "Entry Paid ($)": round(entry_paid, 2),
+                "Net ($)": round(net_balance, 2)
+            })
 
-        transactions = []
-        while debtors and creditors:
-            debtors.sort(key=lambda x: x[1])
-            creditors.sort(key=lambda x: x[1], reverse=True)
-
-            debtor_name, debtor_bal = debtors[0]
-            creditor_name, creditor_bal = creditors[0]
-
-            amount_to_pay = min(abs(debtor_bal), creditor_bal)
-            amount_to_pay = round(amount_to_pay, 2)
-
-            transactions.append(f"🟢 **{debtor_name}** pays **{creditor_name}**: `${amount_to_pay:,.2f}`")
-
-            debtors[0][1] += amount_to_pay
-            creditors[0][1] -= amount_to_pay
-
-            if abs(debtors[0][1]) < 0.02:
-                debtors.pop(0)
-            if abs(creditors[0][1]) < 0.02:
-                creditors.pop(0)
-
-        if not transactions:
-            st.write("Everyone broke even! No money changes hands.")
-        else:
-            for tx in transactions:
-                st.markdown(tx)
+        st.subheader("🏆 Player Results")
+        st.dataframe(summary_data, use_container_width=True)
+``
