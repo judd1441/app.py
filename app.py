@@ -7,7 +7,7 @@ st.title("⛳ FCW Golf Skins Calculator")
 st.write("Determine who owes who money instantly on the 18th green.")
 
 # 1. Inputs
-skin_value = st.number_input("Skin Value (Per Player): $", min_value=0.01, value=1.00, step=1.00)
+skin_value = st.number_input("Skin Value (Paid Per Player): $", min_value=0.01, value=1.00, step=1.00)
 
 st.subheader("Players & Skins Won")
 st.write("Enter one player per line as `Name: Skins` (e.g., Alice: 3)")
