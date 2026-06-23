@@ -19,8 +19,8 @@ default_text = "Alice: 3\nBob: 1\nCharlie: 0\nDavid: 0\nEmma: 2\nFrank: 0"
 raw_text = st.text_area("Player List", value=default_text, height=180, label_visibility="collapsed")
 
 if st.button("Calculate Payouts", type="primary"):
-# Parse input data
-players = {}
+    # Parse input data
+    players = {}
 valid = True
 
 for line in raw_text.strip().split("\n"):
